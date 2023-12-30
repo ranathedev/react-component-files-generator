@@ -2,8 +2,9 @@
   "name": "generate-react-component",
   "displayName": "Generate React Component",
   "description": "It generates the basic file structure of react component",
-  "version": "0.0.1",
-  "publisher": "appzaib",
+  "version": "1.0.0",
+  "icon": "images/react-icon.png",
+  "publisher": "Appzaib",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -20,14 +21,44 @@
   "contributes": {
     "commands": [
       {
-        "command": "generate-react-component.showTime",
-        "title": "Show Time"
+        "command": "generate-react-component.greetings",
+        "title": "Greetings"
       },
       {
         "command": "generate-react-component.generateComponent",
         "title": "Generate Component"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "generate-react-component.generateComponent",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "generate-react-component.generateComponent",
+        "key": "ctrl+alt+c",
+        "mac": "cmd+alt+c"
+      }
+    ],
+    "configuration": {
+      "title": "React Component Generator Configuration",
+      "properties": {
+        "generate-react-component.ext": {
+          "type": "string",
+          "default": "",
+          "description": "The 'ext' preference"
+        },
+        "generate-react-component.styleType": {
+          "type": "string",
+          "default": "",
+          "description": "The 'styleType' preference"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run compile",
