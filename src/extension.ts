@@ -28,6 +28,25 @@ export function activate(context: vscode.ExtensionContext) {
   let generateComponent = vscode.commands.registerCommand(
     'generate-react-component.generateComponent',
     async () => {
+      // @ts-ignore
+      let workspacePath
+      if (
+        vscode.workspace.workspaceFolders &&
+        vscode.workspace.workspaceFolders.length > 0
+      ) {
+        workspacePath = vscode.workspace.workspaceFolders[0].uri.fsPath
+      } else {
+        vscode.window.showErrorMessage('No workspace is open.')
+        return
+      }
+
+      const componentPath = await vscode.window.showInputBox({
+        prompt: 'Enter the path for the component',
+        placeHolder: 'e.g., src/components',
+      })
+
+      const componentFullPath = path.join(workspacePath, componentPath)
+
       const folderName = await vscode.window.showInputBox({
         prompt: 'Enter the folder name for the component',
         placeHolder: 'e.g., button',
@@ -42,49 +61,77 @@ export function activate(context: vscode.ExtensionContext) {
         placeHolder: 'Select the file extension for the component',
       })
 
-      const styleType = await vscode.window.showQuickPick(['css', 'scss'], {
-        placeHolder: 'Select the style type for the component',
-      })
+      const styleType = await vscode.window.showQuickPick(
+        ['css', 'scss', 'tailwind'],
+        {
+          placeHolder: 'Select the style type for the component',
+        }
+      )
 
-      const folderPath = path.join(process.cwd(), folderName)
+      if (!fs.existsSync(componentFullPath)) {
+        console.log('Path does not exist')
+        const normalizedPath = path.normalize(componentPath)
+        const parts = normalizedPath.split(path.sep)
+
+        let currentPath = ''
+
+        for (const part of parts) {
+          if (parts[0] === part) {
+            currentPath = path.join(workspacePath, part)
+          } else {
+            currentPath = path.join(currentPath, part)
+          }
+
+          if (!fs.existsSync(currentPath)) {
+            fs.mkdirSync(currentPath)
+          }
+        }
+
+        console.log(`Path creation complete: ${componentFullPath}`)
+      }
+
+      const folderPath = path.join(componentFullPath, folderName)
 
       try {
         // Create folder
         if (!fs.existsSync(folderPath)) {
           fs.mkdirSync(folderPath)
-          console.log(`Created directory: ${folderName}`)
 
           // Create ComponentName.tsx
           const componentPath = path.join(folderPath, `${componentName}.${ext}`)
           fs.writeFileSync(componentPath, '')
-          console.log(`Created file: ${componentName}.${ext}`)
 
           // Create index.tsx
           const indexPath = path.join(folderPath, `index.${ext}`)
           fs.writeFileSync(indexPath, '')
-          console.log(`Created file: index.${ext}`)
 
           // Create style file based on styleType
-          if (styleType === 'css') {
-            const cssPath = path.join(folderPath, `${componentName}.css`)
-            fs.writeFileSync(cssPath, '')
-            console.log(`Created file: ${componentName}.css`)
-          } else if (styleType === 'scss') {
-            const scssPath = path.join(
-              folderPath,
-              `${componentName}.module.scss`
-            )
-            fs.writeFileSync(scssPath, '')
-            console.log(`Created file: ${componentName}.module.scss`)
-          } else {
-            console.error(
-              'Invalid styleType. Supported values are "css" or "scss".'
-            )
+          switch (styleType) {
+            case 'css':
+              const cssPath = path.join(folderPath, `${componentName}.css`)
+              fs.writeFileSync(cssPath, '')
+              break
+            case 'scss':
+              const scssPath = path.join(
+                folderPath,
+                `${componentName}.module.scss`
+              )
+              fs.writeFileSync(scssPath, '')
+              break
+            case 'tailwind':
+              break
+            default:
+              vscode.window.showErrorMessage(
+                'Invalid styleType. Supported values are "css", "scss" or "tailwind".'
+              )
+              break
           }
 
-          console.log('Task completed successfully.')
-        } else {
           vscode.window.showInformationMessage(
+            'Component generated successfully.'
+          )
+        } else {
+          vscode.window.showErrorMessage(
             'Folder already exists. Choose a different folder name.'
           )
           console.error(
@@ -92,7 +139,7 @@ export function activate(context: vscode.ExtensionContext) {
           )
         }
       } catch (err: any) {
-        vscode.window.showInformationMessage(err.message)
+        vscode.window.showErrorMessage(err.message)
         console.error(`Error: ${err.message}`)
       }
     }

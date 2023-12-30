@@ -5,6 +5,10 @@
   "version": "0.0.1",
   "publisher": "appzaib",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ranathedev/vscode-gen-react-comp.git"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
