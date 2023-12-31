@@ -7,16 +7,27 @@ import { extensioName } from './constant'
 
 const generateComponentFiles = vscode.commands.registerCommand(
   `${extensioName}.generateComponentFiles`,
-  async () => {
+  async uri => {
     let workspacePath
+    let relativePath = ''
+
     if (
       vscode.workspace.workspaceFolders &&
       vscode.workspace.workspaceFolders.length > 0
     ) {
       workspacePath = vscode.workspace.workspaceFolders[0].uri.fsPath
+
+      if (uri) {
+        // Check if the URI represents a folder
+        if (uri.scheme === 'file' && uri.fsPath) {
+          // Get the path of the folder
+          const folderPath = uri.fsPath
+
+          relativePath = path.relative(workspacePath, folderPath)
+        }
+      }
     } else {
       vscode.window.showErrorMessage('No workspace is open.')
-      return
     }
 
     const config = await vscode.workspace.getConfiguration(extensioName)
@@ -24,13 +35,13 @@ const generateComponentFiles = vscode.commands.registerCommand(
     let ext = await config.get('ext')
     let styleType = await config.get('styleType')
 
-    let componentPath = ''
+    let componentPath
 
-    componentPath = (await vscode.window.showInputBox({
+    componentPath = await vscode.window.showInputBox({
       prompt: 'Enter the path for the component',
       placeHolder: 'e.g., src/components',
-    })) as string
-
+      value: relativePath,
+    })
     const componentFullPath = path.join(workspacePath, componentPath)
 
     const folderName = await vscode.window.showInputBox({
