@@ -1,6 +1,6 @@
 {
-  "name": "react-component-structure-generator",
-  "displayName": "React Component Structure Generator",
+  "name": "react-component-files-generator",
+  "displayName": "React Component Files Generator",
   "description": "It generates the basic file structure of react component",
   "version": "1.0.0",
   "icon": "images/react-icon.png",
@@ -8,7 +8,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ranathedev/react-component-structure-generator.git"
+    "url": "https://github.com/ranathedev/react-component-files-generator.git"
   },
   "engines": {
     "vscode": "^1.85.0"
@@ -21,38 +21,38 @@
   "contributes": {
     "commands": [
       {
-        "command": "react-component-structure-generator.greetings",
+        "command": "react-component-files-generator.greetings",
         "title": "Greetings"
       },
       {
-        "command": "react-component-structure-generator.generateComponentStructure",
+        "command": "react-component-files-generator.generateComponentStructure",
         "title": "Generate Component Structure"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "react-component-structure-generator.generateComponentStructure",
+          "command": "react-component-files-generator.generateComponentStructure",
           "when": "explorerResourceIsFolder"
         }
       ]
     },
     "keybindings": [
       {
-        "command": "react-component-structure-generator.generateComponentStructure",
+        "command": "react-component-files-generator.generateComponentStructure",
         "key": "ctrl+alt+c",
         "mac": "cmd+alt+c"
       }
     ],
     "configuration": {
-      "title": "React Component Structure Generator Configuration",
+      "title": "React Component Files Generator Configuration",
       "properties": {
-        "react-component-structure-generator.ext": {
+        "react-component-files-generator.ext": {
           "type": "string",
           "default": "",
           "description": "The 'ext' preference"
         },
-        "react-component-structure-generator.styleType": {
+        "react-component-files-generator.styleType": {
           "type": "string",
           "default": "",
           "description": "The 'styleType' preference"

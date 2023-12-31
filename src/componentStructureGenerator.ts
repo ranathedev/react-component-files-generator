@@ -1,10 +1,11 @@
 import * as vscode from 'vscode'
 const fs = require('fs')
 const path = require('path')
+import { extensioName } from './constant'
 import setPreferencesCommand from './preferences'
 
 const generateComponentStructure = vscode.commands.registerCommand(
-  'react-component-structure-generator.generateComponentStructure',
+  `${extensioName}.generateComponentStructure`,
   async () => {
     // @ts-ignore
     let workspacePath
@@ -18,9 +19,7 @@ const generateComponentStructure = vscode.commands.registerCommand(
       return
     }
 
-    const config = await vscode.workspace.getConfiguration(
-      'react-component-structure-generator'
-    )
+    const config = await vscode.workspace.getConfiguration(extensioName)
     // Retrieve "ext" and "styleType" from the workspace configuration
     let ext = await config.get('ext')
     let styleType = await config.get('styleType')

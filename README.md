@@ -1,8 +1,8 @@
-# React Component Structure Generator
+# React Component Files Generator
 
 ## Overview
 
-The React Component Structure Generator is a Visual Studio Code extension that streamlines the process of creating the basic file structure for React components in your workspace.
+The React Component Files Generator is a Visual Studio Code extension that streamlines the process of creating the basic file structure for React components in your workspace.
 
 ## Features
 
@@ -11,20 +11,21 @@ The React Component Structure Generator is a Visual Studio Code extension that s
 
 ## Commands
 
-- **Generate Component Structure:** Open the command palette and run "Generate Component Structure" to create the basic file structure for a React component.
+- **Generate Component Files:** Open the command palette and run "Generate Component Files" to create the basic file structure for a React component.
 
 ## Usage
 
 1. Open Visual Studio Code.
 2. Open the desired workspace folder.
-3. Open the command palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS).
-4. Run "Generate Component Structure."
+3. Open the command palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS) or `Right-click` on a folder in the Explorer.
+4. Run "Generate Component Files."
 5. Follow the prompts to specify the components path, folder name, component name, component extension and stylesheet type.
 6. Once you've selected the `component extension` and `stylesheet type`, preferences will be saved for this workspace. You won't have to select them again for future component creations in this workspace.
+7. Alternatively, use the shortcut keys (`Ctrl+Alt+C` or `Cmd+Alt+C` on macOS)
 
 ## Examples
 
-1. Suppose you run the "Generate Component Structure" command and provide the following inputs:
+1. Suppose you run the "Generate Component Files" command and provide the following inputs:
 
 - Components Path: `src/components`
 - Folder Name: `button`
@@ -32,13 +33,13 @@ The React Component Structure Generator is a Visual Studio Code extension that s
 - Component Extension: `tsx`
 - Stylesheet Type: `scss`
 
-The extension will create the following structure:
+The extension will create the following files:
 
 - `src/components/button/MyButton.tsx`
 - `src/components/button/MyButton.module.scss`
 - `src/components/button/index.tsx`
 
-2. Suppose you run the "Generate Component Structure" command and provide the following inputs:
+2. Suppose you run the "Generate Component Files" command and provide the following inputs:
 
 - Components Path: `src/components`
 - Folder Name: `header`
@@ -46,13 +47,13 @@ The extension will create the following structure:
 - Component Extension: `jsx`
 - Stylesheet Type: `css`
 
-The extension will create the following structure:
+The extension will create the following files:
 
 - `src/components/header/Header.jsx`
 - `src/components/header/Header.css`
 - `src/components/header/index.jsx`
 
-3. Suppose you run the "Generate Component Structure" command and provide the following inputs:
+3. Suppose you run the "Generate Component Files" command and provide the following inputs:
 
 - Components Path: `''`
 - Folder Name: `my-component`
@@ -60,7 +61,7 @@ The extension will create the following structure:
 - Component Extension: `tsx`
 - Stylesheet Type: `tailwind`
 
-The extension will create the following structure:
+The extension will create the following files:
 
 - `my-compnent/MyComponent.tsx`
 - `my-compnent/index.tsx`
@@ -73,14 +74,14 @@ The extension will create the following structure:
 
 1. Open Visual Studio Code.
 2. Go to the Extensions view (`Ctrl+Shift+X` or `Cmd+Shift+X` on macOS).
-3. Search for "React Component Structure Generator."
+3. Search for "React Component Files Generator."
 4. Click Install.
 
 ## Release Notes
 
 ### 1.0.0
 
-Initial release of the React Component Structure Generator.
+Initial release of the React Component Files Generator.
 
 ## Known Issues
 
@@ -88,8 +89,8 @@ No known issues.
 
 ## Contributing
 
-Contributions are welcome! Please submit issues and pull requests on the [GitHub repository](https://github.com/ranathedev/react-component-structure-generator).
+Contributions are welcome! Please submit issues and pull requests on the [GitHub repository](https://github.com/ranathedev/react-component-files-generator).
 
 ## License
 
-This extension is licensed under the [MIT License](https://github.com/ranathedev/react-component-structure-generator/blob/main/LICENSE).
+This extension is licensed under the [MIT License](https://github.com/ranathedev/react-component-files-generator/blob/main/LICENSE).
