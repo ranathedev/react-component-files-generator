@@ -25,21 +25,21 @@
         "title": "Greetings"
       },
       {
-        "command": "react-component-files-generator.generateComponentStructure",
-        "title": "Generate Component Structure"
+        "command": "react-component-files-generator.generateComponentFiles",
+        "title": "Generate Component Files"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "react-component-files-generator.generateComponentStructure",
+          "command": "react-component-files-generator.generateComponentFiles",
           "when": "explorerResourceIsFolder"
         }
       ]
     },
     "keybindings": [
       {
-        "command": "react-component-files-generator.generateComponentStructure",
+        "command": "react-component-files-generator.generateComponentFiles",
         "key": "ctrl+alt+c",
         "mac": "cmd+alt+c"
       }

@@ -1,13 +1,13 @@
 import * as vscode from 'vscode'
 const fs = require('fs')
 const path = require('path')
-import { extensioName } from './constant'
-import setPreferencesCommand from './preferences'
 
-const generateComponentStructure = vscode.commands.registerCommand(
-  `${extensioName}.generateComponentStructure`,
+import setPreferencesCommand from './preferences'
+import { extensioName } from './constant'
+
+const generateComponentFiles = vscode.commands.registerCommand(
+  `${extensioName}.generateComponentFiles`,
   async () => {
-    // @ts-ignore
     let workspacePath
     if (
       vscode.workspace.workspaceFolders &&
@@ -137,4 +137,4 @@ const generateComponentStructure = vscode.commands.registerCommand(
   }
 )
 
-export default generateComponentStructure
+export default generateComponentFiles
