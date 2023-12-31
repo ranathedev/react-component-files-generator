@@ -3,8 +3,8 @@ const fs = require('fs')
 const path = require('path')
 import setPreferencesCommand from './preferences'
 
-const generateComponent = vscode.commands.registerCommand(
-  'generate-react-component.generateComponent',
+const generateComponentStructure = vscode.commands.registerCommand(
+  'react-component-structure-generator.generateComponentStructure',
   async () => {
     // @ts-ignore
     let workspacePath
@@ -19,16 +19,18 @@ const generateComponent = vscode.commands.registerCommand(
     }
 
     const config = await vscode.workspace.getConfiguration(
-      'generate-react-component'
+      'react-component-structure-generator'
     )
     // Retrieve "ext" and "styleType" from the workspace configuration
     let ext = await config.get('ext')
     let styleType = await config.get('styleType')
 
-    const componentPath = await vscode.window.showInputBox({
+    let componentPath = ''
+
+    componentPath = (await vscode.window.showInputBox({
       prompt: 'Enter the path for the component',
       placeHolder: 'e.g., src/components',
-    })
+    })) as string
 
     const componentFullPath = path.join(workspacePath, componentPath)
 
@@ -136,4 +138,4 @@ const generateComponent = vscode.commands.registerCommand(
   }
 )
 
-export default generateComponent
+export default generateComponentStructure

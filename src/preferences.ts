@@ -1,7 +1,9 @@
 import * as vscode from 'vscode'
 
 const setPreferencesCommand = async (ext?: string, styleType?: string) => {
-  const config = vscode.workspace.getConfiguration('generate-react-component')
+  const config = vscode.workspace.getConfiguration(
+    'react-component-structure-generator'
+  )
 
   if (ext !== undefined) {
     // Save "ext" to the workspace configuration
