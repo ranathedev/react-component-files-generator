@@ -50,12 +50,12 @@
         "react-component-files-generator.ext": {
           "type": "string",
           "default": "",
-          "description": "The 'ext' preference"
+          "description": "The 'component's extension' preference"
         },
         "react-component-files-generator.styleType": {
           "type": "string",
           "default": "",
-          "description": "The 'styleType' preference"
+          "description": "The 'stylesheet type' preference"
         }
       }
     }

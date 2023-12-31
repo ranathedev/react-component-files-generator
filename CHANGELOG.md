@@ -1,9 +1,5 @@
 # Change Log
 
-All notable changes to the "react-component-files-generator" extension will be documented in this file.
+## [1.0.0] - 2023-12-31
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+Released the extension v1.0.0
