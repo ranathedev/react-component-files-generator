@@ -2,9 +2,9 @@
   "name": "react-component-files-generator",
   "displayName": "React Component Files Generator",
   "description": "It generates the basic file structure of react component",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "icon": "images/react-icon.png",
-  "publisher": "ranathedev",
+  "publisher": "evonare",
   "license": "MIT",
   "repository": {
     "type": "git",
