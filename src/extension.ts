@@ -25,19 +25,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   )
 
-  let statusBarItem = vscode.window.createStatusBarItem(
-    vscode.StatusBarAlignment.Right,
-    100
-  )
-
-  // Set properties for the status bar item
-  statusBarItem.text = '$(zap) My Extension'
-  statusBarItem.tooltip = 'My Extension is active'
-
-  context.subscriptions.push(greetings, generateComponentFiles, statusBarItem)
-
-  // Show the status bar item
-  statusBarItem.show()
+  context.subscriptions.push(greetings, generateComponentFiles)
 }
 
 // This method is called when your extension is deactivated

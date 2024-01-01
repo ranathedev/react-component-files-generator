@@ -1,1 +1,1 @@
-export const extensioName = 'react-component-files-generator'
+export const extensioName = 'react-component-kickstart'
