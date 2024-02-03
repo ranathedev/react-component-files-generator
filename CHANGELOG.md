@@ -1,5 +1,23 @@
 # Change Log
 
+## [1.2.0] - 2024-02-03
+
+### Added
+
+- Code snippets are now pre-filled in generated component files for an enhanced developer experience.
+
+  - Quickly get started with essential code structures for your components.
+    <br>
+
+- README has been updated with images and a preview video.
+  - Visualize the extension in action with screenshots and a demo video.
+
+### Fixed
+
+- Addressed a few edge cases related to file generation.
+
+🚀 Enjoy coding with the latest features and check out the updated README for a visual guide! 🚀
+
 ## [1.1.0] - 2024-01-01
 
 ### Added

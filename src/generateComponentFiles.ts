@@ -4,6 +4,7 @@ const path = require('path')
 
 import setPreferencesCommand from './preferences'
 import { extensioName } from './constant'
+import { getExportSnippet, getSnippet, getStyleSnippet } from './snippets'
 
 const generateComponentFiles = vscode.commands.registerCommand(
   `${extensioName}.generateComponentFiles`,
@@ -35,38 +36,56 @@ const generateComponentFiles = vscode.commands.registerCommand(
     let ext = await config.get('ext')
     let styleType = await config.get('styleType')
 
-    let componentPath
-
-    componentPath = await vscode.window.showInputBox({
+    const componentPath = await vscode.window.showInputBox({
       prompt: 'Enter the path for the component',
       placeHolder: 'e.g., src/components',
       value: relativePath,
     })
+
+    if (typeof componentPath === 'undefined') return
+
+    if (componentPath === '') {
+      vscode.window.showErrorMessage('No path entered.')
+      return
+    }
+
     const componentFullPath = path.join(workspacePath, componentPath)
 
-    const folderName = await vscode.window.showInputBox({
+    let folderName = await vscode.window.showInputBox({
       prompt: 'Enter the folder name for the component',
       placeHolder: 'e.g., button',
     })
 
-    const componentName = await vscode.window.showInputBox({
+    if (typeof folderName === 'undefined') return
+    if (folderName === '') folderName = 'button'
+
+    let componentName = (await vscode.window.showInputBox({
       prompt: 'Enter the component name',
       placeHolder: 'e.g., Button',
-    })
+    })) as string
 
-    if (ext !== '' && styleType !== '') {
-      console.log(ext, styleType)
-    } else {
-      ext = await vscode.window.showQuickPick(['js', 'jsx', 'tsx'], {
-        placeHolder: 'Select the file extension for the component',
-      })
+    if (typeof componentName === 'undefined') return
+    if (componentName === '') componentName = 'Button'
 
-      styleType = await vscode.window.showQuickPick(
-        ['css', 'scss', 'tailwind'],
-        {
-          placeHolder: 'Select the style type for the component',
-        }
-      )
+    if (ext === '' || styleType === '') {
+      if (ext === '') {
+        ext = await vscode.window.showQuickPick(['js', 'jsx', 'tsx'], {
+          placeHolder: 'Select the file extension for the component',
+        })
+      }
+
+      if (styleType === '') {
+        styleType = await vscode.window.showQuickPick(
+          ['css', 'scss', 'tailwind'],
+          {
+            placeHolder: 'Select the style type for the component',
+          }
+        )
+      }
+
+      if (typeof ext === 'undefined' || typeof styleType === 'undefined') return
+      if (ext === '') ext = 'js'
+      if (styleType === '') styleType = 'css'
 
       setPreferencesCommand(ext as string, styleType as string)
     }
@@ -100,26 +119,38 @@ const generateComponentFiles = vscode.commands.registerCommand(
       if (!fs.existsSync(folderPath)) {
         fs.mkdirSync(folderPath)
 
+        if (styleType === '') styleType = 'css'
+        if (ext === '') ext = 'js'
+
         // Create ComponentName.tsx
         const componentPath = path.join(folderPath, `${componentName}.${ext}`)
-        fs.writeFileSync(componentPath, '')
+        fs.writeFileSync(
+          componentPath,
+          await getSnippet(componentName, styleType as string)
+        )
 
         // Create index.tsx
         const indexPath = path.join(folderPath, `index.${ext}`)
-        fs.writeFileSync(indexPath, '')
+        fs.writeFileSync(indexPath, await getExportSnippet(componentName))
 
         // Create style file based on styleType
         switch (styleType) {
           case 'css':
             const cssPath = path.join(folderPath, `${componentName}.css`)
-            fs.writeFileSync(cssPath, '')
+            fs.writeFileSync(
+              cssPath,
+              await getStyleSnippet(componentName, styleType)
+            )
             break
           case 'scss':
             const scssPath = path.join(
               folderPath,
               `${componentName}.module.scss`
             )
-            fs.writeFileSync(scssPath, '')
+            fs.writeFileSync(
+              scssPath,
+              await getStyleSnippet(componentName, styleType)
+            )
             break
           case 'tailwind':
             break

@@ -4,6 +4,10 @@
 
 The React Component Files Generator is a Visual Studio Code extension that streamlines the process of creating the basic file structure for React components in your workspace.
 
+## Preview
+
+<div style="position:relative; width:100%; height:0px; padding-bottom:56.962%"><iframe allow="fullscreen;autoplay" allowfullscreen height="100%" src="https://streamable.com/e/f5ufen?autoplay=1" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe></div>
+
 ## Features
 
 - Quickly generate the file structure for React components.
@@ -20,8 +24,44 @@ The React Component Files Generator is a Visual Studio Code extension that strea
 3. Open the command palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS) or `Right-click` on a folder in the Explorer.
 4. Run "Generate Component Files."
 5. Follow the prompts to specify the components path, folder name, component name, component extension and stylesheet type.
+
+#### Component Path:
+
+<div align='center'>
+<img src='media/path.png' alt='Choose Component Path' style='border: 1px solid #ccc; border-radius: 1rem;'>
+</div>
+
+#### Folder Name:
+
+<div align='center'>
+<img src='media/folder-name.png' alt='Choose Folder Name' style='border: 1px solid #ccc; border-radius: 1rem;'>
+</div>
+
+#### Component Name:
+
+<div align='center'>
+<img src='media/component-name.png' alt='Choose Component Name' style='border: 1px solid #ccc; border-radius: 1rem;'>
+</div>
+
+#### Component Extension:
+
+<div align='center'>
+<img src='media/ext.png' alt='Choose Component Extension' style='border: 1px solid #ccc; border-radius: 1rem;'>
+</div>
+
+#### Stylesheet Type:
+
+<div align='center'>
+<img src='media/style-type.png' alt='Choose Stylesheet Type' style='border: 1px solid #ccc; border-radius: 1rem;'>
+</div>
+<br />
+<br />
+
 6. Once you've selected the `component extension` and `stylesheet type`, preferences will be saved for this workspace. You won't have to select them again for future component creations in this workspace.
+
 7. Alternatively, use the shortcut keys (`Ctrl+Alt+C` or `Cmd+Alt+C` on macOS)
+
+**Note:** If no `component extension` is selected, the `component extension` will be set to `.js`. If no `stylesheet type` is selected, the default `stylesheet type` will be set to `.css`.
 
 ## Examples
 

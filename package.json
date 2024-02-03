@@ -68,6 +68,13 @@
     "lint": "eslint src --ext ts",
     "test": "vscode-test"
   },
+  "keywords": [
+    "React",
+    "React Component Kickstart",
+    "React Component Generator",
+    "React Component Files Generator",
+    "React Component QuickStart"
+  ],
   "devDependencies": {
     "@types/vscode": "^1.85.0",
     "@types/mocha": "^10.0.6",
