@@ -2,8 +2,8 @@
   "name": "react-component-kickstart",
   "displayName": "React Component Kickstart",
   "description": "It generates the basic file structure of react component",
-  "version": "1.1.0",
-  "icon": "images/react-icon.png",
+  "version": "1.2.0",
+  "icon": "media/react-icon.png",
   "publisher": "evonare",
   "license": "MIT",
   "repository": {
