@@ -6,7 +6,7 @@ The React Component Files Generator is a Visual Studio Code extension that strea
 
 ## Preview
 
-<div style="position:relative; width:100%; height:0px; padding-bottom:56.962%"><iframe allow="fullscreen;autoplay" allowfullscreen height="100%" src="https://streamable.com/e/f5ufen?autoplay=1" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe></div>
+![Example GIF](./media/react-component-kickstart.gif)
 
 ## Features
 
