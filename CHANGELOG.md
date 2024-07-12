@@ -1,5 +1,13 @@
 # Change Log
 
+## Version [1.2.2] 2024-07-12
+
+### Fixed
+
+- Corrected versioning mistake where patch increment was mistakenly published as 1.2.3 instead of 1.2.2.
+
+This release corrects the version number to accurately reflect the intended patch increment.
+
 ## [1.2.0] - 2024-02-03
 
 ### Added
