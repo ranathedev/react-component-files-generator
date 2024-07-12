@@ -2,7 +2,7 @@
   "name": "react-component-kickstart",
   "displayName": "React Component Kickstart",
   "description": "It generates the basic file structure of react component",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "icon": "media/react-icon.png",
   "publisher": "evonare",
   "license": "MIT",
@@ -20,10 +20,6 @@
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      {
-        "command": "react-component-kickstart.greetings",
-        "title": "Greetings"
-      },
       {
         "command": "react-component-kickstart.generateComponentFiles",
         "title": "Generate Component Files"
@@ -45,7 +41,7 @@
       }
     ],
     "configuration": {
-      "title": "React Component Files Generator Configuration",
+      "title": "React Component Kickstart Configuration",
       "properties": {
         "react-component-kickstart.ext": {
           "type": "string",

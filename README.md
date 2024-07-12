@@ -1,8 +1,8 @@
-# React Component Files Generator
+# React Component Kickstart
 
 ## Overview
 
-The React Component Files Generator is a Visual Studio Code extension that streamlines the process of creating the basic file structure for React components in your workspace.
+The React Component Kickstart is a Visual Studio Code extension that streamlines the process of creating the basic file structure for React components in your workspace.
 
 ## Preview
 
@@ -22,6 +22,9 @@ The React Component Files Generator is a Visual Studio Code extension that strea
 1. Open Visual Studio Code.
 2. Open the desired workspace folder.
 3. Open the command palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS) or `Right-click` on a folder in the Explorer.
+<div align='center'>
+<img src='media/context-menu.png' alt='Choose Component Path' style='border: 1px solid #ccc; border-radius: 1rem;'>
+</div>
 4. Run "Generate Component Files."
 5. Follow the prompts to specify the components path, folder name, component name, component extension and stylesheet type.
 
@@ -114,14 +117,14 @@ The extension will create the following files:
 
 1. Open Visual Studio Code.
 2. Go to the Extensions view (`Ctrl+Shift+X` or `Cmd+Shift+X` on macOS).
-3. Search for "React Component Files Generator."
+3. Search for "React Component Kickstart."
 4. Click Install.
 
 ## Release Notes
 
 ### 1.0.0
 
-Initial release of the React Component Files Generator.
+Initial release of the React Component Kickstart.
 
 ## Known Issues
 
@@ -129,8 +132,8 @@ No known issues.
 
 ## Contributing
 
-Contributions are welcome! Please submit issues and pull requests on the [GitHub repository](https://github.com/ranathedev/react-component-files-generator).
+Contributions are welcome! Please submit issues and pull requests on the [GitHub repository](https://github.com/ranathedev/react-component-kickstart).
 
 ## License
 
-This extension is licensed under the [MIT License](https://github.com/ranathedev/react-component-files-generator/blob/main/LICENSE).
+This extension is licensed under the [MIT License](https://github.com/ranathedev/react-component-kickstart/blob/main/LICENSE).
